@@ -3,6 +3,7 @@ Digital HTML Instrument for Christian Contemplation
 
 
 Recognizes these keywords and responds with divine scripture:
+ 
   grief - "The Lord is near to the brokenhearted" (Psalm 34:18)
  
   freedom - "You will know the truth and the truth will set you free" (John 8:32)
