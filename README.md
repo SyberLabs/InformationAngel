@@ -1,4 +1,4 @@
-# InformationAngel
+# Information Angel
 Digital HTML Instrument for Christian Contemplation
 
 
