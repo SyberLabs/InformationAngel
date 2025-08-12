@@ -1013,6 +1013,28 @@
                     colors: { core: 0x0ea5e9, glow: 0x38bdf8, wheels: 0x7dd3fc },
                     duration: 4000
                 },
+
+                light: {
+                    states: ['awakening', 'revelation'],
+                    colors: { core: 0xffffff, glow: 0xfefce8, wheels: 0xfef9c3 },
+                    duration: 3000
+                },
+                faith: {
+                    states: ['dormant', 'awakening', 'contemplation'],
+                    colors: { core: 0x7c3aed, glow: 0xa855f7, wheels: 0xc4b5fd },
+                    duration: 3500
+                },
+                mercy: {
+                    states: ['dormant', 'contemplation'],
+                    colors: { core: 0x16a34a, glow: 0x22c55e, wheels: 0x86efac },
+                    duration: 4000
+                },
+                strength: {
+                    states: ['awakening', 'revelation'],
+                    colors: { core: 0xb91c1c, glow: 0xdc2626, wheels: 0xfca5a5 },
+                    duration: 3000
+                },
+                
                 // Special sequences
                 enlightenment: {
                     states: ['void', 'dormant', 'awakening', 'contemplation', 'revelation', 'transcendence'],
@@ -1054,7 +1076,7 @@
                 
                 // Check for emotive mappings
                 for (const [key, value] of Object.entries(emotiveMap)) {
-                    if (query.includes(key)) {
+                    if (query === key) {
                         initiateStateSequence(value.states, value.duration);
                         
                         targetColors.core = new THREE.Color(value.colors.core);
