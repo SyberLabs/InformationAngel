@@ -1484,21 +1484,21 @@
             
             // 2. Logic for the Hidden Key and Help Scroll
             function setupHelpSystem() {
-                const helpScrollEl = document.querySelector('.help-scroll');
-                const hiddenKeyEl = document.querySelector('.hidden-key');
-                const scrollContentEl = document.querySelector('.scroll-content');
                 const closeButtonEl = document.querySelector('.close-button');
                 
-                // Add a click listener to the close button
-                closeButtonEl.addEventListener('click', () => {
-                    helpScrollEl.classList.remove('visible');
-                });        
                 // Show the help scroll when the key is clicked
-                hiddenKeyEl.addEventListener('click', () => {
+                hiddenKeyEl.addEventListener('click', (e) => { // Add (e)
+                    e.stopPropagation(); // <-- THIS IS THE FIX
                     helpScrollEl.classList.add('visible');
                 });
             
-                // Hide the help scroll when it's clicked
+                // Add a click listener to the close button
+                closeButtonEl.addEventListener('click', (e) => { // Add (e)
+                    e.stopPropagation(); // Good practice to add it here too
+                    helpScrollEl.classList.remove('visible');
+                });        
+            
+                // Hide the help scroll when the overlay is clicked
                 helpScrollEl.addEventListener('click', () => {
                     helpScrollEl.classList.remove('visible');
                 });
