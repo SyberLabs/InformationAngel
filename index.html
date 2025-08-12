@@ -1487,34 +1487,36 @@
             }
             
             // 2. Logic for the Hidden Key and Help Scroll
-            function setupHelpSystem() {
-                const closeButtonEl = document.querySelector('.close-button');
-                
+
+            function setupHelpSystem(keyElement, scrollElement, contentElement) {
+                // Find the close button *inside* the scroll's content
+                const closeButton = contentElement.querySelector('.close-button');
+            
                 // Show the help scroll when the key is clicked
-                hiddenKeyEl.addEventListener('click', (e) => { // Add (e)
-                    e.stopPropagation(); // <-- THIS IS THE FIX
-                    helpScrollEl.classList.add('visible');
+                keyElement.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    scrollElement.classList.add('visible');
                 });
             
-                // Add a click listener to the close button
-                closeButtonEl.addEventListener('click', (e) => { // Add (e)
-                    e.stopPropagation(); // Good practice to add it here too
-                    helpScrollEl.classList.remove('visible');
-                });        
-            
-                // Hide the help scroll when the overlay is clicked
-                helpScrollEl.addEventListener('click', () => {
-                    helpScrollEl.classList.remove('visible');
+                // Hide the help scroll when the overlay background is clicked
+                scrollElement.addEventListener('click', () => {
+                    scrollElement.classList.remove('visible');
+                });
+                
+                // Add a click listener to the dedicated close button
+                closeButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    scrollElement.classList.remove('visible');
                 });
             
-                // Prevent clicks on the content from closing the scroll
-                scrollContentEl.addEventListener('click', (e) => {
+                // Prevent clicks on the content area itself from closing the scroll
+                contentElement.addEventListener('click', (e) => {
                     e.stopPropagation();
                 });
             }
             
             handleInitialRevelation();
-            setupHelpSystem();
+            setupHelpSystem(hiddenKeyEl, helpScrollEl, scrollContentEl);
         });
     </script>
 </body>
