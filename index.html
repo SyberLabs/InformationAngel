@@ -1484,6 +1484,9 @@
             
             // 2. Logic for the Hidden Key and Help Scroll
             function setupHelpSystem() {
+                const helpScrollEl = document.querySelector('.help-scroll');
+                const hiddenKeyEl = document.querySelector('.hidden-key');
+                const scrollContentEl = document.querySelector('.scroll-content');
                 const closeButtonEl = document.querySelector('.close-button');
                 
                 // Add a click listener to the close button
