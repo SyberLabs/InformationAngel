@@ -353,12 +353,7 @@
             // Post-processing bloom effect simulation
             renderer.toneMapping = THREE.ReinhardToneMapping;
             renderer.toneMappingExposure = 2;
-            const closeButtonEl = document.querySelector('.close-button');
-            
-            // Add a click listener to the close button
-            closeButtonEl.addEventListener('click', () => {
-                helpScrollEl.classList.remove('visible');
-            });        
+
             // Complex shader materials
             const glowVertexShader = `
                 varying vec3 vNormal;
@@ -1489,6 +1484,12 @@
             
             // 2. Logic for the Hidden Key and Help Scroll
             function setupHelpSystem() {
+                const closeButtonEl = document.querySelector('.close-button');
+                
+                // Add a click listener to the close button
+                closeButtonEl.addEventListener('click', () => {
+                    helpScrollEl.classList.remove('visible');
+                });        
                 // Show the help scroll when the key is clicked
                 hiddenKeyEl.addEventListener('click', () => {
                     helpScrollEl.classList.add('visible');
