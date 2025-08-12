@@ -1,6 +1,5 @@
 # Information Angel
-Digital HTML Instrument for Christian Contemplation
-
+Digital HTML Instrument for Wisdom Contemplation
 
 Recognizes these keywords and responds with divine scripture:
  
