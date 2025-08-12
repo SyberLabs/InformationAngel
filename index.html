@@ -1397,9 +1397,9 @@
                             ));
                         });
                         
-                        const newCurve = new THREE.CatmullRomCurve3(points);
-                        ribbon.geometry.dispose();
-                        ribbon.geometry = new THREE.TubeGeometry(newCurve, 200, 0.05 + layer * 0.02, 8, false);
+                        //const newCurve = new THREE.CatmullRomCurve3(points);
+                        //ribbon.geometry.dispose();
+                        //ribbon.geometry = new THREE.TubeGeometry(newCurve, 200, 0.05 + layer * 0.02, 8, false);
                         
                         // Update ribbon appearance
                         ribbon.material.opacity = (0.5 - layer * 0.1) * currentState.lightIntensity;
@@ -1442,9 +1442,10 @@
                     camera.position.y += Math.cos(elapsedTime * 12) * shakeIntensity;
                     camera.position.z += Math.sin(elapsedTime * 8) * shakeIntensity * 0.5;
                 } else if (currentState.name === 'Void') {
-                    // Keep the more chaotic shake for Void state
-                    camera.position.x += (Math.random() - 0.5) * 0.1 * currentState.wheelSpeed;
-                    camera.position.y += (Math.random() - 0.5) * 0.1 * currentState.wheelSpeed;
+                    // A smoother, unsettling drift instead of a harsh shake
+                    const shakeIntensity = 0.03 * currentState.wheelSpeed;
+                    camera.position.x += Math.sin(elapsedTime * 5) * shakeIntensity;
+                    camera.position.y += Math.cos(elapsedTime * 6) * shakeIntensity;
                 }
                 
                 renderer.render(scene, camera);
