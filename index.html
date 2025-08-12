@@ -334,6 +334,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const initialRevelationEl = document.getElementById('initialRevelation');
+            const hiddenKeyEl = document.getElementById('hiddenKey');
+            const helpScrollEl = document.getElementById('helpScroll');
+            const scrollContentEl = document.querySelector('.scroll-content');
             // Initialize Three.js
             const scene = new THREE.Scene();
             scene.fog = new THREE.Fog(0x000000, 1, 50);
